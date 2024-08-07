@@ -5,3 +5,4 @@ api/v1/views/__pycache__/
 modles/__pycache__/
 *.pyc
 .logger
+main.py
