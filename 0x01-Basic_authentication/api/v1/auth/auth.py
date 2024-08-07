@@ -9,12 +9,10 @@ class Auth:
     def requires_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """The required authentication method"""
         return False
-        
+
     def authorization_headers(self, request=None) -> str:
         """The authorization headers method"""
-        if request is None:
-            return None
-        return request.headers.get('Authorization', None)
+        return None
 
     def current_user(self, request=None) -> TypeVar('User'):
         """The current user method"""
