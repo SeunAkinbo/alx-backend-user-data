@@ -54,11 +54,12 @@ def auth_user():
             '/api/v1/users/me',
         ]
         if auth.require_auth(request.path, excluded_paths):
+            user = auth.current_user(request)
             if auth.authorization_header(request) is None:
                 abort(401)
-            request.current_user = auth.current_user(request)
-            if request.current_user is None:
+            if user is None:
                 abort(403)
+            request.current_user = user
 
 
 if __name__ == "__main__":
